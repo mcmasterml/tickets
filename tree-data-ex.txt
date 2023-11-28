@@ -1,0 +1,126 @@
+type
+id
+datetime_utc
+venue
+  state
+  name_v2
+  postal_code
+  name
+  links
+  timezone
+  url
+  score
+  location
+    lat
+    lon
+  address
+  country
+  has_upcoming_events
+  num_upcoming_events
+  city
+  slug
+  extended_address
+  id
+  popularity
+  access_method
+  metro_code
+  capacity
+  display_location
+datetime_tbd
+performers [Array] [
+  {
+    type
+    name
+    image
+    id
+    images
+      huge
+    divisions [Array]
+      {
+        taxonomy_id
+        short_name
+        display_name
+        display_type
+        division_level
+        slug
+      }, ...
+    has_upcoming_events
+    primary
+    stats
+      event_count
+    taxonomies (for Performers) [Array] [
+      {
+        id: 1000000
+        name: "SPORTS"
+        parent_id
+        document_source
+          source_type
+          generation_type
+        rank
+        seo_event_type
+      }, ... {more fine-grained taxonomies}
+    ]
+    image_attribution
+    url: "THIS IS WHERE WE GET TICKETS"
+    score
+    slug
+    home_venue_id
+    short_name
+    num_upcoming_events
+    colors
+    image_license
+    popularity
+    home_team: bool
+    location
+      lat
+      lon
+    image_rights_message
+  }, ... {other team ('performer')}
+]
+is_open
+links
+datetime_local
+time_tbd
+short_title
+visible_until_utc
+stats
+  listing_count
+  average_price
+  lowest_price_good_deals
+  lowest_price
+  highest_price
+  visible_listing_count
+  dq_bucket_counts
+  median_price
+  lowest_sg_base_price
+  lowest_sg_base_price_good_deals
+taxonomies [array] [
+  {
+    id: 1000000
+    name: 'sports'
+    parend_id
+    range
+    seo_event_type
+  }, ... {...}, 
+]
+url
+score
+announce_date
+created_at
+date_tbd
+title: "Idaho State Bengals at Pepperdine Waves Mens Basketball"
+popularity
+description
+status
+access_method
+event_promotion
+announcements
+conditional
+enddatetime_utc
+visible_at
+is_visible_override
+tdc_pvo_id
+tdc_pv_id
+is_visible
+themes
+domain_information
