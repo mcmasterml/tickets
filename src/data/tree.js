@@ -1,3 +1,6 @@
+// Separate utility function for printing formatted object keys,
+// used to render `src/tree-data-example.txt`
+
 const obj = {
   "type": "ncaa_basketball",
   "id": 6150112,
