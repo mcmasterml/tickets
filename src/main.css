@@ -1,0 +1,41 @@
+/* Color Wheel
+    --a-color: #4F1D5E;
+    --b-color: #2A016C;
+    --c-color: #00004F;
+    --d-color: #273E66;
+    --e-color: #3A555E;
+*/
+
+/* General Resetting */
+/* Reset margins and paddings */
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* ensures padding doesn't add to the total width/height */
+}
+
+/* General Styles */
+/* HTML Base Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  scroll-padding-top: 0rem;
+}
+
+/* Font Families */
+/* Base font */
+body, h1 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Alternative font 1 */
+h2, h3, h4, h5, h6, p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Alternative font 2 */
+caption, .caption-text, li, ul, ol, span, label {
+  font-family: 'Roboto', sans-serif;
+}
+
