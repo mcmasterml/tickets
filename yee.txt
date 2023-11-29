@@ -1,0 +1,115 @@
+import { useState } from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+import './App.css';
+import apiData from './data/data-example.json';
+
+import TicketToggle from './assets/ticket-toggle.svg?react';
+import StarToggle from './assets/star-toggle.svg?react';
+
+const FilterableEventsPage = ({ events }) => {
+  const [filterText, setFilterText] = useState('');
+
+  const filteredEvents = events.filter((event) => {
+    return event.short_title.toLowerCase().includes(filterText.toLowerCase());
+  })
+
+  return (
+    <div className='sidebar'>
+      <SearchBar
+        filterText={filterText}
+        onFilterTextChange={setFilterText}
+      />
+      {filteredEvents.map((event) => (  // for filtered events create EventStubs
+        <EventStub className='event-stub' key={event.id} event={event} />
+      ))}
+    </div>
+  )
+}
+
+function SearchBar({ filterText, onFilterTextChange }) {
+  return (
+    <form>
+      <input 
+        type='text'
+        value={filterText} 
+        placeholder='Search...'
+        onChange={(e) => onFilterTextChange(e.target.value)}
+      />
+    </form>
+  );
+}
+
+function EventStub({ event }) {
+  return (
+    <div className='event-stub'>
+      <h5>{event.short_title}</h5>
+      <div className='event-stub-container'>
+        <ul className='stub-left'>
+          <li>{event.taxonomies[event.taxonomies.length - 1].name}</li>
+          <li>{event.datetime_local}</li>
+          <li>{event.venue.name}</li>
+        </ul>
+        <div className='stub-right'>
+          <div className='star-icon'>
+            <StarToggle />
+          </div>
+          <div className='ticket-icon'>
+            <TicketToggle />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function Navbar() {
+  return (
+    <nav className="navbar">
+      <div className='nav-left'>
+        <Link exact='true' to="/" className='nav-link'>Search Tickets</Link>
+        <Link to="/mytickets" className='nav-link'>My Tickets</Link>
+      </div>
+      <div className='nav-right'>
+        <Link to='/' className='nav-link'>Tickets</Link>
+      </div>
+    </nav>
+  );
+}
+
+function Sidebar() {
+  return (
+    <>
+      <FilterableEventsPage events={apiData.events} />
+    </>
+  )
+}
+
+function MainContent() {
+  return (
+    <div className='main-content'>
+      <h1>Main Content</h1>
+      <h3>Select something...</h3>
+      <p>to see cool stuff</p>
+    </div>
+  )
+}
+
+function Tickets({events}) {
+  return (
+    <div className='App'>
+      <Navbar />
+      <div className='tickets-container'>
+        <Sidebar events={events} />
+        <MainContent />
+      </div>
+    </div>
+  )
+}
+
+export default function App() {
+  return (
+    <Router>
+      <Tickets events={apiData.events} />
+    </Router>
+  )
+}
